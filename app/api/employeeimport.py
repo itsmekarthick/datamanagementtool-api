@@ -110,6 +110,13 @@ def validate_records(non_duplicate_employees, validation_messages):
 
         # Check that Phonenumber is a valid integer
         try:
+            int(emp.employeenumber)
+        except ValueError:
+            validation_message.responsetype = "error"
+            validation_message.message = "Employee number must be a valid integer"
+            
+        # Check that Phonenumber is a valid integer
+        try:
             int(emp.mobilenumber)
         except ValueError:
             validation_message.responsetype = "error"
