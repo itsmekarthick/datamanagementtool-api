@@ -43,7 +43,7 @@ def post():
     # Validate the uploaded records
     validate_records(non_duplicate_employees, validation_messages)
     
-    return json.dumps(validation_messages, cls=MyEncoder)
+    return json.dumps(sorted(validation_messages, key=lambda p: p.employeenumber), cls=MyEncoder)
 
 
 def map_target_records(df, employee_collections):
